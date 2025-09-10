@@ -16,6 +16,9 @@ interface SurveyData {
   occupation: 'student' | 'engineer' | 'teacher' | 'doctor' | 'business' | 'artist' | 'researcher' | 'other' | ''
   phoneticPreference: 'soft' | 'strong' | 'balanced' | ''
   meaningPreference: 'wisdom' | 'strength' | 'peace' | 'success' | ''
+  nameStyle: 'traditional_gendered' | 'modern_balanced' | 'gender_neutral' | ''
+  workplaceContext: 'formal_business' | 'academic' | 'creative' | 'international' | ''
+  culturalIntegration: 'high' | 'moderate' | 'low' | ''
   favoriteFood: string
   favoriteMusic: string
 }
@@ -34,11 +37,14 @@ export default function SurveyNew() {
     occupation: '',
     phoneticPreference: '',
     meaningPreference: '',
+    nameStyle: '',
+    workplaceContext: '',
+    culturalIntegration: '',
     favoriteFood: '',
     favoriteMusic: ''
   })
 
-  const totalSteps = 10
+  const totalSteps = 13
 
   const updateSurveyData = (field: keyof SurveyData, value: string) => {
     setSurveyData(prev => ({ ...prev, [field]: value }))
@@ -97,8 +103,11 @@ export default function SurveyNew() {
       case 6: return surveyData.occupation !== ''
       case 7: return surveyData.phoneticPreference !== ''
       case 8: return surveyData.meaningPreference !== ''
-      case 9: return surveyData.favoriteFood.trim() !== ''
-      case 10: return surveyData.favoriteMusic.trim() !== ''
+      case 9: return surveyData.nameStyle !== ''
+      case 10: return surveyData.workplaceContext !== ''
+      case 11: return surveyData.culturalIntegration !== ''
+      case 12: return surveyData.favoriteFood.trim() !== ''
+      case 13: return surveyData.favoriteMusic.trim() !== ''
       default: return false
     }
   }
@@ -290,6 +299,97 @@ export default function SurveyNew() {
       case 9:
         return (
           <div className="text-center">
+            <h2 className="text-3xl font-bold mb-8">What naming style do you prefer?</h2>
+            <div className="grid gap-4 max-w-md mx-auto">
+              {[
+                { key: 'traditional_gendered', label: 'Traditional (clear gender distinction)', emoji: '👑', desc: 'Classic Korean names with clear male/female characteristics' },
+                { key: 'modern_balanced', label: 'Modern balanced', emoji: '⚖️', desc: 'Contemporary feel while respecting traditional elements' },
+                { key: 'gender_neutral', label: 'Gender neutral', emoji: '🌟', desc: 'Names that work well for any gender identity' }
+              ].map(({ key, label, emoji, desc }) => (
+                <button
+                  key={key}
+                  onClick={() => updateSurveyData('nameStyle', key as 'traditional_gendered' | 'modern_balanced' | 'gender_neutral')}
+                  className={`p-4 rounded-xl border-2 transition-all text-left ${
+                    surveyData.nameStyle === key 
+                      ? 'border-blue-500 bg-blue-50' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center mb-2">
+                    <span className="text-2xl mr-3">{emoji}</span>
+                    <div className="font-medium">{label}</div>
+                  </div>
+                  <div className="text-sm text-gray-600 pl-11">{desc}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )
+
+      case 10:
+        return (
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-8">What is your workplace context?</h2>
+            <div className="grid gap-4 max-w-md mx-auto">
+              {[
+                { key: 'formal_business', label: 'Formal Business', emoji: '🏢', desc: 'Traditional corporate environment' },
+                { key: 'academic', label: 'Academic', emoji: '🎓', desc: 'University or research institution' },
+                { key: 'creative', label: 'Creative Industry', emoji: '🎨', desc: 'Design, media, entertainment' },
+                { key: 'international', label: 'International', emoji: '🌍', desc: 'Global company with foreign colleagues' }
+              ].map(({ key, label, emoji, desc }) => (
+                <button
+                  key={key}
+                  onClick={() => updateSurveyData('workplaceContext', key as 'formal_business' | 'academic' | 'creative' | 'international')}
+                  className={`p-4 rounded-xl border-2 transition-all text-left ${
+                    surveyData.workplaceContext === key 
+                      ? 'border-blue-500 bg-blue-50' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center mb-2">
+                    <span className="text-2xl mr-3">{emoji}</span>
+                    <div className="font-medium">{label}</div>
+                  </div>
+                  <div className="text-sm text-gray-600 pl-11">{desc}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )
+
+      case 11:
+        return (
+          <div className="text-center">
+            <h2 className="text-3xl font-bold mb-8">How important is cultural integration?</h2>
+            <div className="grid gap-4 max-w-md mx-auto">
+              {[
+                { key: 'high', label: 'Very Important', emoji: '🤝', desc: 'I want to fit in seamlessly with Korean culture' },
+                { key: 'moderate', label: 'Moderately Important', emoji: '⚖️', desc: 'Balance between my identity and Korean culture' },
+                { key: 'low', label: 'Less Important', emoji: '🌈', desc: 'I prefer to maintain my unique identity' }
+              ].map(({ key, label, emoji, desc }) => (
+                <button
+                  key={key}
+                  onClick={() => updateSurveyData('culturalIntegration', key as 'high' | 'moderate' | 'low')}
+                  className={`p-4 rounded-xl border-2 transition-all text-left ${
+                    surveyData.culturalIntegration === key 
+                      ? 'border-blue-500 bg-blue-50' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="flex items-center mb-2">
+                    <span className="text-2xl mr-3">{emoji}</span>
+                    <div className="font-medium">{label}</div>
+                  </div>
+                  <div className="text-sm text-gray-600 pl-11">{desc}</div>
+                </button>
+              ))}
+            </div>
+          </div>
+        )
+
+      case 12:
+        return (
+          <div className="text-center">
             <h2 className="text-3xl font-bold mb-8">{t('favoriteFood')}</h2>
             <Input
               type="text"
@@ -301,7 +401,7 @@ export default function SurveyNew() {
           </div>
         )
 
-      case 10:
+      case 13:
         return (
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-8">{t('favoriteMusic')}</h2>

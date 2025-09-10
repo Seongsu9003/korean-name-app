@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { AuthGuard } from '@/components/ui/AuthGuard'
 import { Button } from '@/components/ui/button'
 import { useTranslations } from '@/lib/i18n'
+import genderNames from '@/data/gender_appropriate_names.json'
 
 interface NameCandidate {
   hangul: string
@@ -20,9 +21,121 @@ export default function ResultNew() {
   const { t } = useTranslations()
   const [selectedCard, setSelectedCard] = useState<number | null>(null)
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set())
-  
-  // Mock data - in real app, this would come from API
-  const nameResults: NameCandidate[] = [
+  const [nameResults, setNameResults] = useState<NameCandidate[]>([])
+
+  useEffect(() => {
+    // Get survey data from localStorage
+    const surveyDataStr = localStorage.getItem('surveyData')
+    if (surveyDataStr) {
+      const surveyData = JSON.parse(surveyDataStr)
+      const generatedNames = generateGenderAppropriateNames(surveyData)
+      setNameResults(generatedNames)
+    } else {
+      // Fallback to default names if no survey data
+      setNameResults(getDefaultNames())
+    }
+  }, [])
+
+  const generateGenderAppropriateNames = (surveyData: {
+    gender: string;
+    nameStyle: string;
+    workplaceContext: string;
+    culturalIntegration: string;
+  }): NameCandidate[] => {
+    const { gender, nameStyle, workplaceContext } = surveyData
+    const results: NameCandidate[] = []
+
+    if (nameStyle === 'traditional_gendered') {
+      if (gender === 'male') {
+        // Generate traditional male names
+        const firstOptions = genderNames.male_traditional.first_syllables
+        const secondOptions = genderNames.male_traditional.second_syllables
+        
+        for (let i = 0; i < 4; i++) {
+          const first = firstOptions[i % firstOptions.length]
+          const second = secondOptions[i % secondOptions.length]
+          
+          results.push({
+            hangul: first.hangul + second.hangul,
+            hanja: first.hanja + second.hanja,
+            pronunciation: romanize(first.hangul + second.hangul),
+            meaning: `${first.meaning} and ${second.meaning}`,
+            explanation: `A traditional masculine name combining ${first.meaning} with ${second.meaning}, perfect for ${workplaceContext} environment.`,
+            compatibility: Math.floor(Math.random() * 10) + 90
+          })
+        }
+      } else if (gender === 'female') {
+        // Generate traditional female names
+        const firstOptions = genderNames.female_traditional.first_syllables
+        const secondOptions = genderNames.female_traditional.second_syllables
+        
+        for (let i = 0; i < 4; i++) {
+          const first = firstOptions[i % firstOptions.length]
+          const second = secondOptions[i % secondOptions.length]
+          
+          results.push({
+            hangul: first.hangul + second.hangul,
+            hanja: first.hanja + second.hanja,
+            pronunciation: romanize(first.hangul + second.hangul),
+            meaning: `${first.meaning} and ${second.meaning}`,
+            explanation: `A traditional feminine name combining ${first.meaning} with ${second.meaning}, reflecting grace and elegance.`,
+            compatibility: Math.floor(Math.random() * 10) + 90
+          })
+        }
+      }
+    } else if (nameStyle === 'modern_balanced') {
+      // Generate modern balanced names
+      const firstOptions = genderNames.modern_balanced.unisex_first
+      const secondOptions = genderNames.modern_balanced.unisex_second
+      
+      for (let i = 0; i < 4; i++) {
+        const first = firstOptions[i % firstOptions.length]
+        const second = secondOptions[i % secondOptions.length]
+        
+        results.push({
+          hangul: first.hangul + second.hangul,
+          hanja: first.hanja + second.hanja,
+          pronunciation: romanize(first.hangul + second.hangul),
+          meaning: `${first.meaning} and ${second.meaning}`,
+          explanation: `A modern balanced name that works well in contemporary Korean society while honoring traditional elements.`,
+          compatibility: Math.floor(Math.random() * 15) + 85
+        })
+      }
+    } else if (nameStyle === 'gender_neutral') {
+      // Generate gender neutral names
+      const natureNames = genderNames.gender_neutral.nature_based
+      const virtueNames = genderNames.gender_neutral.virtue_based
+      const allNeutral = [...natureNames, ...virtueNames]
+      
+      for (let i = 0; i < 4; i++) {
+        const name = allNeutral[i % allNeutral.length]
+        
+        results.push({
+          hangul: name.hangul,
+          hanja: name.hangul, // These names don't use hanja
+          pronunciation: romanize(name.hangul),
+          meaning: name.meaning,
+          explanation: `A gender-neutral name that allows you to express your unique identity while fitting naturally in Korean society.`,
+          compatibility: Math.floor(Math.random() * 20) + 80
+        })
+      }
+    }
+
+    return results.length > 0 ? results : getDefaultNames()
+  }
+
+  const romanize = (hangul: string): string => {
+    // Simple romanization - in real app, use proper library
+    const romanizationMap: {[key: string]: string} = {
+      '지혜': 'ji-hye', '서연': 'seo-yeon', '은아': 'eun-ah', '민서': 'min-seo',
+      '민준': 'min-jun', '현우': 'hyeon-woo', '태진': 'tae-jin', '성한': 'seong-han',
+      '도윤': 'do-yoon', '하영': 'ha-young', '서우': 'seo-woo', '지현': 'ji-hyeon',
+      '하늘': 'ha-neul', '새롬': 'sae-rom', '이슬': 'i-seul', '참': 'cham'
+    }
+    return romanizationMap[hangul] || hangul
+  }
+
+  const getDefaultNames = (): NameCandidate[] => [
     {
       hangul: '지혜',
       hanja: '智慧',

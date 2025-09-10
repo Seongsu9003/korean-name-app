@@ -1,0 +1,78 @@
+{
+  "male_traditional": {
+    "first_syllables": [
+      {"hangul": "민", "hanja": "敏", "meaning": "quick/clever", "sound": "strong"},
+      {"hangul": "현", "hanja": "賢", "meaning": "wise/virtuous", "sound": "balanced"},
+      {"hangul": "태", "hanja": "太", "meaning": "great/supreme", "sound": "strong"},
+      {"hangul": "성", "hanja": "成", "meaning": "achievement", "sound": "strong"},
+      {"hangul": "준", "hanja": "俊", "meaning": "talented/handsome", "sound": "strong"},
+      {"hangul": "진", "hanja": "眞", "meaning": "true/genuine", "sound": "strong"},
+      {"hangul": "석", "hanja": "碩", "meaning": "great/large", "sound": "strong"},
+      {"hangul": "웅", "hanja": "雄", "meaning": "male/heroic", "sound": "strong"}
+    ],
+    "second_syllables": [
+      {"hangul": "호", "hanja": "昊", "meaning": "vast sky", "sound": "strong"},
+      {"hangul": "우", "hanja": "宇", "meaning": "universe", "sound": "balanced"},
+      {"hangul": "준", "hanja": "俊", "meaning": "talented", "sound": "strong"},
+      {"hangul": "진", "hanja": "進", "meaning": "advance/progress", "sound": "strong"},
+      {"hangul": "성", "hanja": "星", "meaning": "star", "sound": "strong"},
+      {"hangul": "한", "hanja": "漢", "meaning": "great/vast", "sound": "strong"},
+      {"hangul": "철", "hanja": "哲", "meaning": "philosophy/wisdom", "sound": "strong"},
+      {"hangul": "빈", "hanja": "彬", "meaning": "refined/elegant", "sound": "balanced"}
+    ]
+  },
+  
+  "female_traditional": {
+    "first_syllables": [
+      {"hangul": "서", "hanja": "瑞", "meaning": "auspicious", "sound": "soft"},
+      {"hangul": "지", "hanja": "智", "meaning": "wisdom", "sound": "soft"},
+      {"hangul": "은", "hanja": "恩", "meaning": "grace/kindness", "sound": "soft"},
+      {"hangul": "민", "hanja": "敏", "meaning": "quick/clever", "sound": "balanced"},
+      {"hangul": "하", "hanja": "夏", "meaning": "summer", "sound": "soft"},
+      {"hangul": "수", "hanja": "秀", "meaning": "excellent/outstanding", "sound": "soft"},
+      {"hangul": "예", "hanja": "藝", "meaning": "art/talent", "sound": "soft"},
+      {"hangul": "미", "hanja": "美", "meaning": "beauty", "sound": "soft"}
+    ],
+    "second_syllables": [
+      {"hangul": "연", "hanja": "姸", "meaning": "beautiful", "sound": "soft"},
+      {"hangul": "혜", "hanja": "慧", "meaning": "wisdom", "sound": "soft"},
+      {"hangul": "아", "hanja": "雅", "meaning": "elegant", "sound": "soft"},
+      {"hangul": "진", "hanja": "珍", "meaning": "precious", "sound": "soft"},
+      {"hangul": "영", "hanja": "英", "meaning": "flower/brilliant", "sound": "soft"},
+      {"hangul": "리", "hanja": "麗", "meaning": "beautiful", "sound": "soft"},
+      {"hangul": "나", "hanja": "娜", "meaning": "graceful", "sound": "soft"},
+      {"hangul": "윤", "hanja": "允", "meaning": "allow/fair", "sound": "soft"}
+    ]
+  },
+
+  "modern_balanced": {
+    "unisex_first": [
+      {"hangul": "도", "hanja": "道", "meaning": "path/way", "sound": "balanced"},
+      {"hangul": "하", "hanja": "夏", "meaning": "summer", "sound": "balanced"},
+      {"hangul": "서", "hanja": "瑞", "meaning": "auspicious", "sound": "balanced"},
+      {"hangul": "지", "hanja": "智", "meaning": "wisdom", "sound": "balanced"},
+      {"hangul": "민", "hanja": "敏", "meaning": "quick/clever", "sound": "balanced"}
+    ],
+    "unisex_second": [
+      {"hangul": "윤", "hanja": "潤", "meaning": "smooth/moist", "sound": "balanced"},
+      {"hangul": "우", "hanja": "宇", "meaning": "universe", "sound": "balanced"},
+      {"hangul": "영", "hanja": "英", "meaning": "brilliant", "sound": "balanced"},
+      {"hangul": "준", "hanja": "準", "meaning": "standard", "sound": "balanced"},
+      {"hangul": "현", "hanja": "賢", "meaning": "wise", "sound": "balanced"}
+    ]
+  },
+
+  "gender_neutral": {
+    "nature_based": [
+      {"hangul": "하늘", "meaning": "sky", "sound": "soft"},
+      {"hangul": "바다", "meaning": "ocean", "sound": "balanced"},
+      {"hangul": "새롬", "meaning": "new", "sound": "soft"},
+      {"hangul": "이슬", "meaning": "dew", "sound": "soft"}
+    ],
+    "virtue_based": [
+      {"hangul": "참", "meaning": "truth", "sound": "balanced"},
+      {"hangul": "빛", "meaning": "light", "sound": "balanced"},
+      {"hangul": "믿", "meaning": "trust", "sound": "balanced"}
+    ]
+  }
+}
