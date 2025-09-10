@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* 3D Flip Card Styles */
+.rotateY-180 {
+  transform: rotateY(180deg);
+}
+
 @theme {
   --color-background: hsl(0 0% 100%);
   --color-foreground: hsl(0 0% 3.9%);
