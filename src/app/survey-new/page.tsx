@@ -24,6 +24,7 @@ export default function SurveyNew() {
   const router = useRouter()
   const { t } = useTranslations()
   const [currentStep, setCurrentStep] = useState(1)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [surveyData, setSurveyData] = useState<SurveyData>({
     name: '',
     gender: '',
@@ -58,7 +59,12 @@ export default function SurveyNew() {
   }
 
   const handleSubmit = async () => {
+    setIsSubmitting(true)
     try {
+      // Store survey data locally for now
+      localStorage.setItem('surveyData', JSON.stringify(surveyData))
+      
+      // Try API call but don't block on failure
       const response = await fetch('/api/surveys', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -68,10 +74,16 @@ export default function SurveyNew() {
       if (response.ok) {
         const result = await response.json()
         localStorage.setItem('surveyResult', JSON.stringify(result))
-        router.push('/result-new')
       }
+      
+      // Always proceed to results page
+      router.push('/result-new')
     } catch (error) {
       console.error('Survey submission error:', error)
+      // Still proceed to results even if API fails
+      router.push('/result-new')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -349,10 +361,15 @@ export default function SurveyNew() {
 
               <Button
                 onClick={goToNextStep}
-                disabled={!isCurrentStepValid()}
+                disabled={!isCurrentStepValid() || isSubmitting}
                 className="px-6 py-2"
               >
-                {currentStep === totalSteps ? t('submit') : t('next')}
+                {isSubmitting 
+                  ? t('loading') 
+                  : currentStep === totalSteps 
+                    ? t('submit') 
+                    : t('next')
+                }
               </Button>
             </div>
           </div>
