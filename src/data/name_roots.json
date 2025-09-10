@@ -1,0 +1,56 @@
+{
+  "male": {
+    "wood": [
+      { "root": "진", "hanja": "振", "meaning": "shake, inspire" },
+      { "root": "준", "hanja": "俊", "meaning": "handsome, talented" },
+      { "root": "현", "hanja": "賢", "meaning": "wise, virtuous" }
+    ],
+    "fire": [
+      { "root": "민", "hanja": "民", "meaning": "people, citizen" },
+      { "root": "호", "hanja": "浩", "meaning": "vast, grand" },
+      { "root": "성", "hanja": "星", "meaning": "star" }
+    ],
+    "earth": [
+      { "root": "우", "hanja": "宇", "meaning": "universe, space" },
+      { "root": "석", "hanja": "石", "meaning": "stone" },
+      { "root": "산", "hanja": "山", "meaning": "mountain" }
+    ],
+    "metal": [
+      { "root": "철", "hanja": "哲", "meaning": "philosophy, wisdom" },
+      { "root": "금", "hanja": "金", "meaning": "gold" },
+      { "root": "승", "hanja": "勝", "meaning": "victory" }
+    ],
+    "water": [
+      { "root": "수", "hanja": "秀", "meaning": "excellent, outstanding" },
+      { "root": "해", "hanja": "海", "meaning": "sea" },
+      { "root": "강", "hanja": "江", "meaning": "river" }
+    ]
+  },
+  "female": {
+    "wood": [
+      { "root": "지", "hanja": "智", "meaning": "wisdom, intelligence" },
+      { "root": "혜", "hanja": "慧", "meaning": "wisdom, bright" },
+      { "root": "영", "hanja": "英", "meaning": "flower, hero" }
+    ],
+    "fire": [
+      { "root": "미", "hanja": "美", "meaning": "beauty" },
+      { "root": "은", "hanja": "恩", "meaning": "grace, kindness" },
+      { "root": "선", "hanja": "善", "meaning": "good, virtuous" }
+    ],
+    "earth": [
+      { "root": "예", "hanja": "禮", "meaning": "courtesy, ritual" },
+      { "root": "연", "hanja": "娟", "meaning": "beautiful, graceful" },
+      { "root": "경", "hanja": "京", "meaning": "capital, large" }
+    ],
+    "metal": [
+      { "root": "금", "hanja": "琴", "meaning": "stringed instrument" },
+      { "root": "옥", "hanja": "玉", "meaning": "jade" },
+      { "root": "진", "hanja": "珍", "meaning": "treasure, precious" }
+    ],
+    "water": [
+      { "root": "수", "hanja": "水", "meaning": "water" },
+      { "root": "윤", "hanja": "潤", "meaning": "moist, smooth" },
+      { "root": "정", "hanja": "淨", "meaning": "clean, pure" }
+    ]
+  }
+}

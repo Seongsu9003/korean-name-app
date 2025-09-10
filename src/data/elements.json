@@ -1,0 +1,44 @@
+{
+  "earthlyBranches": {
+    "子": { "element": "water", "animal": "rat" },
+    "丑": { "element": "earth", "animal": "ox" },
+    "寅": { "element": "wood", "animal": "tiger" },
+    "卯": { "element": "wood", "animal": "rabbit" },
+    "辰": { "element": "earth", "animal": "dragon" },
+    "巳": { "element": "fire", "animal": "snake" },
+    "午": { "element": "fire", "animal": "horse" },
+    "未": { "element": "earth", "animal": "goat" },
+    "申": { "element": "metal", "animal": "monkey" },
+    "酉": { "element": "metal", "animal": "rooster" },
+    "戌": { "element": "earth", "animal": "dog" },
+    "亥": { "element": "water", "animal": "pig" }
+  },
+  "heavenlyStems": {
+    "甲": { "element": "wood", "polarity": "yang" },
+    "乙": { "element": "wood", "polarity": "yin" },
+    "丙": { "element": "fire", "polarity": "yang" },
+    "丁": { "element": "fire", "polarity": "yin" },
+    "戊": { "element": "earth", "polarity": "yang" },
+    "己": { "element": "earth", "polarity": "yin" },
+    "庚": { "element": "metal", "polarity": "yang" },
+    "辛": { "element": "metal", "polarity": "yin" },
+    "壬": { "element": "water", "polarity": "yang" },
+    "癸": { "element": "water", "polarity": "yin" }
+  },
+  "elementRelations": {
+    "generation": {
+      "wood": "fire",
+      "fire": "earth",
+      "earth": "metal",
+      "metal": "water",
+      "water": "wood"
+    },
+    "destruction": {
+      "wood": "earth",
+      "fire": "metal",
+      "earth": "water",
+      "metal": "wood",
+      "water": "fire"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "familyRoles": {
+    "eldest": {
+      "preferredElements": ["wood", "fire"],
+      "traits": ["leadership", "responsibility", "protection"],
+      "namePatterns": ["strong consonants", "firm meanings"]
+    },
+    "middle": {
+      "preferredElements": ["earth", "metal"],
+      "traits": ["balance", "harmony", "mediation"],
+      "namePatterns": ["balanced sounds", "connecting meanings"]
+    },
+    "youngest": {
+      "preferredElements": ["water", "wood"],
+      "traits": ["creativity", "freedom", "joy"],
+      "namePatterns": ["soft sounds", "playful meanings"]
+    },
+    "only": {
+      "preferredElements": ["all"],
+      "traits": ["uniqueness", "completeness", "versatility"],
+      "namePatterns": ["distinctive sounds", "comprehensive meanings"]
+    }
+  },
+  "genderModifiers": {
+    "male": {
+      "strengthMultiplier": 1.2,
+      "preferredStrokes": [8, 10, 12, 16],
+      "avoidedElements": []
+    },
+    "female": {
+      "strengthMultiplier": 1.0,
+      "preferredStrokes": [6, 8, 10, 12],
+      "avoidedElements": []
+    }
+  }
+}

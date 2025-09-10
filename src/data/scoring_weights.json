@@ -1,0 +1,42 @@
+{
+  "weights": {
+    "elementBalance": 0.4,
+    "familyRole": 0.2,
+    "personalTaste": 0.15,
+    "pronunciation": 0.15,
+    "culturalSignificance": 0.1
+  },
+  "scoring": {
+    "elementMatch": {
+      "perfect": 100,
+      "good": 80,
+      "acceptable": 60,
+      "poor": 40,
+      "clash": 20
+    },
+    "familyAlignment": {
+      "strong": 100,
+      "moderate": 70,
+      "weak": 40
+    },
+    "tasteResonance": {
+      "high": 100,
+      "medium": 70,
+      "low": 40,
+      "none": 0
+    },
+    "pronunciationEase": {
+      "veryEasy": 100,
+      "easy": 80,
+      "moderate": 60,
+      "difficult": 40,
+      "veryDifficult": 20
+    }
+  },
+  "bonuses": {
+    "meaningfulCombination": 10,
+    "historicalSignificance": 5,
+    "poeticBeauty": 5,
+    "modernRelevance": 5
+  }
+}

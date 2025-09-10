@@ -1,0 +1,26 @@
+{
+  "food": {
+    "spicy": { "element": "fire", "traits": ["passion", "energy"] },
+    "sweet": { "element": "earth", "traits": ["harmony", "comfort"] },
+    "sour": { "element": "wood", "traits": ["growth", "flexibility"] },
+    "bitter": { "element": "fire", "traits": ["wisdom", "maturity"] },
+    "salty": { "element": "water", "traits": ["depth", "persistence"] },
+    "pizza": { "element": "fire", "traits": ["warmth", "gathering"] },
+    "pasta": { "element": "earth", "traits": ["comfort", "tradition"] },
+    "rice": { "element": "earth", "traits": ["stability", "nourishment"] },
+    "fish": { "element": "water", "traits": ["flow", "adaptability"] },
+    "vegetables": { "element": "wood", "traits": ["health", "growth"] }
+  },
+  "music": {
+    "classical": { "element": "earth", "traits": ["elegance", "structure"] },
+    "rock": { "element": "fire", "traits": ["power", "rebellion"] },
+    "jazz": { "element": "water", "traits": ["flow", "improvisation"] },
+    "pop": { "element": "metal", "traits": ["clarity", "precision"] },
+    "folk": { "element": "wood", "traits": ["tradition", "nature"] },
+    "electronic": { "element": "metal", "traits": ["innovation", "precision"] },
+    "ballad": { "element": "water", "traits": ["emotion", "depth"] },
+    "hip-hop": { "element": "fire", "traits": ["rhythm", "expression"] },
+    "country": { "element": "earth", "traits": ["grounding", "simplicity"] },
+    "blues": { "element": "water", "traits": ["soul", "experience"] }
+  }
+}
