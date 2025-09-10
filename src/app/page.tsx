@@ -1,8 +1,50 @@
+'use client'
+
 import Link from "next/link";
+import { useAuth } from "@/contexts/AuthContext";
+import { logOut } from "@/lib/auth";
 
 export default function Home() {
+  const { user } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+      {/* Auth Header */}
+      <div className="bg-white shadow-sm">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex justify-between items-center">
+            <h1 className="text-lg font-semibold text-gray-800">Korean Name App</h1>
+            <div className="flex items-center space-x-4">
+              {user ? (
+                <>
+                  <span className="text-sm text-gray-600">안녕하세요, {user.email}</span>
+                  <button
+                    onClick={handleLogout}
+                    className="text-sm text-red-600 hover:text-red-800 font-medium"
+                  >
+                    로그아웃
+                  </button>
+                </>
+              ) : (
+                <Link
+                  href="/auth"
+                  className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  로그인
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl font-bold text-gray-800 mb-6">

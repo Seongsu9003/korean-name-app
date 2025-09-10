@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { SurveyData } from '@/types';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { AuthGuard } from '@/components/ui/AuthGuard';
 
 export default function Survey() {
   const router = useRouter();
@@ -66,7 +67,8 @@ export default function Survey() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
+    <AuthGuard>
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {step === 1 && (
@@ -292,6 +294,7 @@ export default function Survey() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </AuthGuard>
   );
 }
